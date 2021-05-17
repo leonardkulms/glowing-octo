@@ -23,7 +23,7 @@ export default function Home() {
         🐙
         </h1>
         <div className="flex w-full flex-wrap">
-          <h1 className="font-bold text-4xl font-extrabold">
+          <h1 className="font-bold text-4xl font-extrabold mr-20">
             Welcome to the
             <br/>
             <span className={`text-transparent bg-clip-text bg-gradient-to-br ${gradients}`}>
@@ -31,8 +31,7 @@ export default function Home() {
             </span>
             <br/>sentiment checker
           </h1>
-          <div>
-            <ul className="list-none mx-10">
+            <ul className="list-none md:mx-0">
               <li>
                 <code className="font-code">1. Load the Model</code>
               </li>
@@ -43,10 +42,9 @@ export default function Home() {
                 <code className="font-code">3. Hit enter to see your sentiment</code>
               </li>
             </ul>
-          </div>
           <div className="w-full">
             <input 
-              className='w-full bg-white focus:outline-black py-5 mt-5'
+              className='w-full bg-white focus:outline-none focus:ring focus:ring-gray-900 focus:border-gray-900 p-5 mt-5 rounded-sm'
               type="text" 
               placeholder="start typing an emotionally loaded sentence"
               ref={input => input && input.focus()}/>
