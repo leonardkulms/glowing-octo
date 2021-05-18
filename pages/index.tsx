@@ -3,9 +3,8 @@ import { fromAndTo } from '../utils';
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import loadConfig from 'next/dist/next-server/server/config';
 
-if (process.browser) {
-  const ml5 = window.ml5;
-}
+declare var ml5: any;
+
 
 export default function Home() {
   const [gradients, setGradients] = useState('');
@@ -43,7 +42,8 @@ export default function Home() {
   const makePrediction = () => {
     let score;
     if(sentiment) {
-      let score = sentiment.predict(currentInput).score;
+      // @ts-ignore: Object is possibly 'null'.
+      let score = sentiment.predict(currentInput).score!;
       setPredictionScore(score);
     }
   }
