@@ -65,7 +65,9 @@ export default function Home() {
           <h1 className="text-4xl font-extrabold mr-20">
             Welcome to the
             <br />
-            <span className={`text-transparent bg-clip-text bg-gradient-to-br ${gradients}`}>
+            {/* </h1><span className={`text-transparent bg-clip-text bg-gradient-to-br ${gradients}`}> */}
+            <span className={`glowing-octo`}>
+            
               {isModelReady
                 ? 'glowing-octo'
                 : 'loading'
