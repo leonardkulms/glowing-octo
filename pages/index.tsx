@@ -30,7 +30,7 @@ export default function Home() {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     hasPredicted && setHasPredicted(false);
-      setCurrentinput(event.target.value);
+    setCurrentinput(event.target.value);
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -41,7 +41,7 @@ export default function Home() {
 
   const makePrediction = () => {
     let score;
-    if(sentiment) {
+    if (sentiment) {
       // @ts-ignore: Object is possibly 'null'.
       let score = sentiment.predict(currentInput).score!;
       setPredictionScore(score);
@@ -65,9 +65,8 @@ export default function Home() {
           <h1 className="text-4xl font-extrabold mr-20">
             Welcome to the
             <br />
-            {/* </h1><span className={`text-transparent bg-clip-text bg-gradient-to-br ${gradients}`}> */}
-            <span className={`glowing-octo`}>
-            
+            <span className={`glowing-octo bg-gradient-to-br ${gradients}`}>
+
               {isModelReady
                 ? 'glowing-octo'
                 : 'loading'
@@ -77,10 +76,17 @@ export default function Home() {
           </h1>
           <ul className="list-none md:mx-0">
             <li>
-              <code className="font-code">1. Give Your Input</code>
+              <code className="font-code">1. Give Me Your Input</code>
             </li>
             <li>
-              <code className="font-code">2. Hit enter to see your sentiment</code>
+              <code className="font-code">2. Hit enter to see what I feel is your sentiment</code>
+            </li>
+            <li>
+              <code className="font-code">
+                3. Remember that I was trained with movie review data.
+                <br />
+                So if you give me something different from that, expect no accurate result.
+              </code>
             </li>
           </ul>
           <div className="w-full">
@@ -111,6 +117,6 @@ export default function Home() {
 
 
       </main>
-    </div>
+    </div >
   );
 }
