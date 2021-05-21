@@ -96,7 +96,7 @@ export default function Home() {
             <input
               className='w-full bg-white focus:outline-none focus:ring focus:ring-gray-900 focus:border-gray-900 p-5 mt-5 rounded-sm'
               type="text"
-              placeholder="start typing an emotionally loaded sentence"
+              placeholder="start typing an emotionally loaded sentence about the last movie you watched"
               ref={input => input && input.focus()}
               onKeyDown={handleKeyDown}
               onChange={handleChange}
@@ -108,7 +108,7 @@ export default function Home() {
           {(currentInput == '' || !hasPredicted)
             ? <p>🐙 longing  to feel something..</p>
             : <p>🐙 feeling a
-        {(predictionScore > 0.5)
+        {(predictionScore > 0.8)
                 ? <span className="text-green-600"> positive </span>
                 : <span className="text-red-600"> negative </span>
               }
