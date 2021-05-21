@@ -7,7 +7,6 @@ declare var ml5: any;
 
 
 export default function Home() {
-  const [gradients, setGradients] = useState('');
   const [isModelReady, setIsModelReady] = useState(false);
   const [isInputDisabled, setIsInputDisabled] = useState(false);
   const [currentInput, setCurrentinput] = useState('');
@@ -20,7 +19,12 @@ export default function Home() {
   }
 
   useEffect(() => {
-    setGradients(fromAndTo());
+    let [from, to] = fromAndTo();
+    document.getElementById('glowing-octo')!.setAttribute('style',
+    `background: linear-gradient(to right, ${from} 0%, ${to} 100%);
+    -webkit-background-clip: text;
+    background-clip: border;
+	  -webkit-text-fill-color: transparent;`);
     setSentiment(ml5.sentiment('movieReviews', modelIsReady));
   }, []);
 
@@ -65,8 +69,7 @@ export default function Home() {
           <h1 className="text-4xl font-extrabold mr-20">
             Welcome to the
             <br />
-            <span className={`glowing-octo bg-gradient-to-br ${gradients}`}>
-
+            <span id="glowing-octo" className="glowing-octo">
               {isModelReady
                 ? 'glowing-octo'
                 : 'loading'
